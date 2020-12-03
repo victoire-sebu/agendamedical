@@ -46,30 +46,30 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('bonenvoiStore')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('ordonnancepaieUpate',$ordonnacepaies->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                              <div class="form-row">
                              <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Nom patient</label>
-                                  <input required type="text" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
+                                  <input required type="text" value="{{$ordonnacepaies->nom_patient}}" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
                                   <div class="validate"></div>
                              </div>
                                <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Hopital/Centre</label>
-                                 <input required type="text" name="hotital_centre" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
+                                 <input required type="text" value="{{$ordonnacepaies->num_ordonnance}}" name="num_ordonnance" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
                                  <div class="validate"></div>
                                </div>
                                <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Date signature</label>
-                                <input required type="date" class="form-control form-control-alternative" name="date_signature" id="email" placeholder="Date signature">
+                                <input required type="date" value="{{$ordonnacepaies->date_signature}}" class="form-control form-control-alternative" name="date_signature" id="email" placeholder="Date signature">
                                </div> 
                              </div>
                             
                             <div class="form-group">
                                <label for="file">Choisir Image du doc</label>
                                
-                               <img src="{{asset('images/document_96px.png')}}" id="previewImg" alt="image doc" style="max-width:130px;margin-top:20px;" />
-                               <input required type="file" name="image" class="form-control" onChange="previewFile(this)"/>
+                               <img src="{{asset($ordonnacepaies->image)}}" id="previewImg" alt="image doc" style="max-width:130px;margin-top:20px;" />
+                               <input required type="file" name="image" value="{{$ordonnacepaies->image}}" class="form-control" onChange="previewFile(this)"/>
                             </div>
                            
                             

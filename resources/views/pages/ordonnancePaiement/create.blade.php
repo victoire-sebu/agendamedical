@@ -46,17 +46,17 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('bonenvoiStore')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('ordonnancepaieStore')}}" method="post" enctype="multipart/form-data">
                             @csrf
                              <div class="form-row">
                              <div class="col-md-4 form-group">
-                                <label class="control-label" for="date_signature">Nom patient</label>
+                                <label class="control-label" for="nom_patient">Nom patient</label>
                                   <input required type="text" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
                                   <div class="validate"></div>
                              </div>
                                <div class="col-md-4 form-group">
-                                <label class="control-label" for="date_signature">Hopital/Centre</label>
-                                 <input required type="text" name="hotital_centre" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
+                                <label class="control-label" for="num_ordonnance">Numero ordonnance</label>
+                                 <input required type="text" name="num_ordonnance" class="form-control form-control-alternative" id="hotital_centre" placeholder="Numero ordonnance">
                                  <div class="validate"></div>
                                </div>
                                <div class="col-md-4 form-group">

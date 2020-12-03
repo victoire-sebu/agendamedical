@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('bonenvoiStore')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('bonsortieStore')}}" method="post" enctype="multipart/form-data">
                             @csrf
                              <div class="form-row">
                              <div class="col-md-4 form-group">

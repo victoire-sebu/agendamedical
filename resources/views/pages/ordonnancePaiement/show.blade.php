@@ -30,22 +30,22 @@
                             <hr>
                             <p>
                                 <h3>Nom patient :</h3>
-                                {{$bonenvois->nom_patient}}
+                                {{$ordonnacepaies->nom_patient}}
                             </p>
                             <hr>
                             <p>
                                 <h3> Hôpital / Centre</h3>
-                                {{$bonenvois->hotital_centre}}
+                                {{$ordonnacepaies->num_ordonnance}}
                             </p>
                             <hr>
                             <p>
                                 <h3>Date de signature du document</h3>
-                                {{$bonenvois->date_signature}}
+                                {{$ordonnacepaies->date_signature}}
                             </p>
                             <hr>
                             <p>
                                 <h3>Date d'enregistrement du document dans l'application</h3>
-                                {{$bonenvois->created_at}}
+                                {{$ordonnacepaies->created_at}}
                             </p>
                            
                             
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <img src="{{asset($bonenvois->image)}}" height="800px" width="600px" class="img-fluid"/>
+                        <img src="{{asset($ordonnacepaies->image)}}" height="800px" width="600px" class="img-fluid"/>
                         <hr class="my-4" />
                     </div>
                 </div>

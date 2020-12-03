@@ -51,17 +51,17 @@
                              <div class="form-row">
                              <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Nom patient</label>
-                                  <input type="text" value="{{$bonenvois->nom_patient}}" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
+                                  <input required type="text" value="{{$bonenvois->nom_patient}}" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
                                   <div class="validate"></div>
                              </div>
                                <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Hopital/Centre</label>
-                                 <input type="text" value="{{$bonenvois->hotital_centre}}" name="hotital_centre" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
+                                 <input required type="text" value="{{$bonenvois->hotital_centre}}" name="hotital_centre" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
                                  <div class="validate"></div>
                                </div>
                                <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Date signature</label>
-                                <input type="date" value="{{$bonenvois->date_signature}}" class="form-control form-control-alternative" name="date_signature" id="email" placeholder="Date signature">
+                                <input required type="date" value="{{$bonenvois->date_signature}}" class="form-control form-control-alternative" name="date_signature" id="email" placeholder="Date signature">
                                </div> 
                              </div>
                             
@@ -69,7 +69,7 @@
                                <label for="file">Choisir Image du doc</label>
                                
                                <img src="{{asset($bonenvois->image)}}" id="previewImg" alt="image doc" style="max-width:130px;margin-top:20px;" />
-                               <input type="file" name="image" value="{{$bonenvois->image}}" class="form-control" onChange="previewFile(this)"/>
+                               <input required type="file" name="image" value="{{$bonenvois->image}}" class="form-control" onChange="previewFile(this)"/>
                             </div>
                            
                             

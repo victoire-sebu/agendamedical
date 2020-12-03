@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdonnancementPaiement extends Model
 {
-    use HasFactory;
+    protected $table='ordonnancement_paiements';
+
+    protected $fillable=[
+        'nom_patient',
+        'num_ordonnance',
+        'date_signature',
+        'image',
+    ];
 }

@@ -2,81 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BonSortie;
 use Illuminate\Http\Request;
 
 class bonSortieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('pages.bonSortie.index');
+        $bonsorties=BonSortie::all();
+        return view('pages.bonSortie.index',['bonsorties'=>$bonsorties]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('pages.bonSortie.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
-    }
+        
+        $image=$request->file('image');
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        $bonsortie = new BonSortie();
+        $bonsortie->image='images/'.$imageName;
+        $bonsortie->nom_patient=$request->nom_patient;
+        $bonsortie->hotital_centre=$request->hotital_centre;
+        $bonsortie->date_signature=$request->date_signature;
+        $bonsortie->save();
+        
+        return redirect()->route('bonsortieIndex');
+    } 
+
+    
+   
+
     public function show($id)
     {
-        //
+        $bonsorties=BonSortie::findOrFail($id);
+        return view('pages.bonSortie.show',['bonsorties'=>$bonsorties]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        return view('pages.bonSortie.edit');
+        $bonsorties=BonSortie::findOrFail($id);
+        return view('pages.bonSortie.edit',['bonsorties'=>$bonsorties]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        $bonsorties=BonSortie::findOrFail($id);
+
+        $image=$request->file('image');
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+        
+        $bonsorties->update([
+            'nom_patient'=>$request->nom_patient,
+            'hotital_centre'=>$request->hotital_centre,
+            'date_signature'=>$request->date_signature,
+            'image'=>'images/'.$imageName,
+        ]);
+        
+        return redirect()->route('bonsortieIndex');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //

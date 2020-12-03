@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class BonSortie extends Model
 {
-    use HasFactory;
+    protected $table='bon_sorties';
+
+    protected $fillable=[
+        'nom_patient',
+        'hotital_centre',
+        'date_signature',
+        'image',
+    ];
 }

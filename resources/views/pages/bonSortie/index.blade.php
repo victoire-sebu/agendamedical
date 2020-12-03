@@ -13,49 +13,91 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               
-              <h6 class="h2 text-white d-inline-block mb-0">Google maps</h6>
+              
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Maps</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Google maps</li>
-                </ol>
+                <form action="{{route('bonsortieIndex')}}" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" >
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" type="text">
+                        </div>
+                    </div>
+                </form>
               </nav>
             </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-            </div>
-
-            <div>
-              <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-                <div class="form-group mb-0">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Search" type="text">
-                    </div>
-                </div>
-            </form>
-            </div>
+                      
 
           </div>
         </div>
       </div>
     </div>
-    <!-- Page content -->
     <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col">
-          <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
-          </div>
-        </div>
-      </div>
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Bon sortie</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                            <a href="{{route('bonsortieCreate')}}" class="btn btn-sm btn-primary">Nouveau</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                    </div>
+    
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Nom patient</th>
+                                    <th scope="col">Hôpital/Centre</th>
+                                    <th scope="col">Date signature document</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-
+                                @foreach ($bonsorties as $bonsortie)
+                                    
+                                
+                                        <tr>
+                                        <td>{{$bonsortie->nom_patient}}</td>
+                                        <td>{{$bonsortie->hotital_centre}}</td>
+                                        <td>{{$bonsortie->date_signature}}</td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="{{route('bonsortieEdit',$bonsortie->id)}}">Modifier</a>
+                                                    <a class="dropdown-item" href="{{route('bonsortieShow',$bonsortie->id)}}">Afficher</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach   
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer py-4">
+                        <nav class="d-flex justify-content-end" aria-label="...">
+                            
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
+   
+        
+
+        
 
         @include('layouts.footers.auth')
     </div>

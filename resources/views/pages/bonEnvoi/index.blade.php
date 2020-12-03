@@ -15,7 +15,7 @@
               
               
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" >
+                <form action="{{route('bonenvoiIndex')}}" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" >
                     <div class="form-group mb-0">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
@@ -27,18 +27,13 @@
                 </form>
               </nav>
             </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-            </div>
-
-            
+                      
 
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid mt--5">
+    <div class="container-fluid mt--6">
         <div class="row">
             <div class="col">
                 <div class="card shadow">

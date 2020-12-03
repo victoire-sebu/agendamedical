@@ -27,10 +27,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//here is for bon de sortie
 Route::get('/bonsortie/index',[bonSortieController::class,'index'])->name('bonsortieIndex');
-// Route::get('/bonsortie/create',[bonSortieController::class,'create'])->name('bonsortieCreate');
-// Route::get('/bonsortie/edit',[bonSortieController::class,'edit'])->name('bonsortieEdit');
+Route::post('/bonsortie/store',[bonSortieController::class,'store'])->name('bonsortieStore');
+Route::get('/bonsortie/create',[bonSortieController::class,'create'])->name('bonsortieCreate');
+Route::get('/bonsortie/edit/{id}]',[bonSortieController::class,'edit'])->name('bonsortieEdit');
+Route::get('/bonsortie/show/{id}',[bonSortieController::class,'show'])->name('bonsortieShow');
+Route::post('/bonsortie/update/{id}',[bonSortieController::class,'update'])->name('bonsortieUpate');
 
+
+//here is for bon d'envois
 Route::get('/bonenvoi/index',[bonEnvoiController::class,'index'])->name('bonenvoiIndex');
 Route::post('/bonenvoi/store',[bonEnvoiController::class,'store'])->name('bonenvoiStore');
 Route::get('/bonenvoi/create',[bonEnvoiController::class,'create'])->name('bonenvoiCreate');
@@ -38,12 +44,19 @@ Route::get('/bonenvoi/edit/{id}]',[bonEnvoiController::class,'edit'])->name('bon
 Route::get('/bonenvoi/show/{id}',[bonEnvoiController::class,'show'])->name('bonenvoiShow');
 Route::post('/bonenvoi/update/{id}',[bonEnvoiController::class,'update'])->name('bonenvoiUpate');
 
+//for ordonnance de paiement
+Route::get('/ordonnacepaie/index',[ordonnancePaiementController::class,'index'])->name('ordonnancepaieIndex');
+Route::post('/ordonnacepaie/store',[ordonnancePaiementController::class,'store'])->name('ordonnancepaieStore');
+Route::get('/ordonnacepaie/create',[ordonnancePaiementController::class,'create'])->name('ordonnancepaieCreate');
+Route::get('/ordonnacepaie/edit/{id}]',[ordonnancePaiementController::class,'edit'])->name('ordonnancepaieEdit');
+Route::get('/ordonnacepaie/show/{id}',[ordonnancePaiementController::class,'show'])->name('ordonnancepaieShow');
+Route::post('/ordonnacepaie/update/{id}',[ordonnancePaiementController::class,'update'])->name('ordonnancepaieUpate');
+
 
 Route::get('/facturepro/index',[factureProformaController::class,'index'])->name('factureproIndex');
 
-Route::get('/ordonnacepaie/index',[ordonnancePaiementController::class,'index'])->name('ordonnancepaieIndex');
-
 Route::get('/prisecharge/index',[priseEnchargeController::class,'index'])->name('prisechargeIndex');
+
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
