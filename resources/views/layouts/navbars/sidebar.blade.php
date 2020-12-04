@@ -87,34 +87,35 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('bonenvoiIndex') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Bon d\'envoi') }}
+                        <i class="fas fa-file-import"></i></i></i> {{ __('Bon d\'envoi') }}
                     </a>
                 </li>
+               
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('ordonnancepaieIndex') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Ordonnance de paiement') }}
+                        <i class="fas fa-folder-open"></i> {{ __('Ordonnance de paiement') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('bonsortieIndex') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Bon de Sortie') }}
+                        <i class="fas fa-outdent"></i></i></i> {{ __('Bon de Sortie') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('factureproIndex') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Facture Proforma') }}
+                        <i class="fas fa-file-invoice-dollar"></i></i> {{ __('Facture Proforma') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('prisechargeIndex') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Prise en Charge Hors Convention') }}
+                        <i class="fas fa-folder-plus"></i> {{ __('Prise en Charge Hors Convention') }}
                     </a>
                 </li>
 
 
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <i class="fas fa-users-cog"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Utilisateur') }}</span>
                     </a>
 
