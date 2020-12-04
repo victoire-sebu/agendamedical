@@ -52,8 +52,14 @@ Route::get('/ordonnacepaie/edit/{id}]',[ordonnancePaiementController::class,'edi
 Route::get('/ordonnacepaie/show/{id}',[ordonnancePaiementController::class,'show'])->name('ordonnancepaieShow');
 Route::post('/ordonnacepaie/update/{id}',[ordonnancePaiementController::class,'update'])->name('ordonnancepaieUpate');
 
-
+//for facture proforma
 Route::get('/facturepro/index',[factureProformaController::class,'index'])->name('factureproIndex');
+Route::post('/facturepro/store',[factureProformaController::class,'store'])->name('factureproStore');
+Route::get('/facturepro/create',[factureProformaController::class,'create'])->name('factureproCreate');
+Route::get('/facturepro/edit/{id}]',[factureProformaController::class,'edit'])->name('factureproEdit');
+Route::get('/facturepro/show/{id}',[factureProformaController::class,'show'])->name('factureproShow');
+Route::post('/facturepro/update/{id}',[factureProformaController::class,'update'])->name('factureproUpate');
+
 
 Route::get('/prisecharge/index',[priseEnchargeController::class,'index'])->name('prisechargeIndex');
 

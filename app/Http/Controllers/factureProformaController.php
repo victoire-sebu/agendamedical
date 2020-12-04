@@ -2,81 +2,74 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FactureProf;
 use Illuminate\Http\Request;
 
 class factureProformaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('pages.factureProforma.index');
+        $factureProformas=FactureProf::all();
+        return view('pages.factureProforma.index',['factureProformas'=>$factureProformas]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('pages.factureProforma.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
-    }
+        
+        $image=$request->file('image');
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        $bonsortie = new FactureProf();
+        $bonsortie->image='images/'.$imageName;
+        $bonsortie->nom_patient=$request->nom_patient;
+        $bonsortie->hotital_centre=$request->hotital_centre;
+        $bonsortie->date_signature=$request->date_signature;
+        $bonsortie->save();
+        
+        return redirect()->route('factureproIndex');
+    } 
+
     public function show($id)
     {
-        //
+        $factureProformas=FactureProf::findOrFail($id);
+        return view('pages.factureProforma.show',['factureProformas'=>$factureProformas]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        //
+        $factureProformas=FactureProf::findOrFail($id);
+        return view('pages.factureProforma.edit',['factureProformas'=>$factureProformas]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        $factureProformas=FactureProf::findOrFail($id);
+
+        $image=$request->file('image');
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+        
+        $factureProformas->update([
+            'nom_patient'=>$request->nom_patient,
+            'hotital_centre'=>$request->hotital_centre,
+            'date_signature'=>$request->date_signature,
+            'image'=>'images/'.$imageName,
+        ]);
+        
+        return redirect()->route('factureproIndex');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //

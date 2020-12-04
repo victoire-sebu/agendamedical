@@ -42,34 +42,34 @@
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="mb-0">{{ __('Nouveau ordonnance de paiement') }}</h3>
+                            <h3 class="mb-0">{{ __('Modification facture proforma') }}</h3>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('ordonnancepaieStore')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('factureproUpate',$factureProformas->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                              <div class="form-row">
                              <div class="col-md-4 form-group">
-                                <label class="control-label" for="nom_patient">Nom patient</label>
-                                  <input required type="text" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
+                                <label class="control-label" for="date_signature">Nom patient</label>
+                                  <input required type="text" value="{{$factureProformas->nom_patient}}" name="nom_patient" class="form-control form-control-alternative" id="nom_patient" placeholder="Nom patient">
                                   <div class="validate"></div>
                              </div>
                                <div class="col-md-4 form-group">
-                                <label class="control-label" for="num_ordonnance">Numero ordonnance</label>
-                                 <input required type="text" name="num_ordonnance" class="form-control form-control-alternative" id="hotital_centre" placeholder="Numero ordonnance">
+                                <label class="control-label" for="date_signature">Hopital/Centre</label>
+                                 <input required type="text" value="{{$factureProformas->hotital_centre}}" name="hotital_centre" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
                                  <div class="validate"></div>
                                </div>
                                <div class="col-md-4 form-group">
                                 <label class="control-label" for="date_signature">Date signature</label>
-                                <input required type="date" class="form-control form-control-alternative" name="date_signature" id="email" placeholder="Date signature">
+                                <input required type="date" value="{{$factureProformas->date_signature}}" class="form-control form-control-alternative" name="date_signature" id="email" placeholder="Date signature">
                                </div> 
                              </div>
                             
                             <div class="form-group">
                                <label for="file">Choisir Image du doc</label>
                                
-                               <img src="{{asset('images/document_96px.png')}}" id="previewImg" alt="image doc" style="max-width:130px;margin-top:20px;" />
-                               <input required type="file" name="image" class="form-control" onChange="previewFile(this)"/>
+                               <img src="{{asset($factureProformas->image)}}" id="previewImg" alt="image doc" style="max-width:130px;margin-top:20px;" />
+                               <input required type="file" name="image" value="{{$factureProformas->image}}" class="form-control" onChange="previewFile(this)"/>
                             </div>
                            
                             

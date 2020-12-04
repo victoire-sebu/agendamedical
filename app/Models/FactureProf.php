@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class FactureProf extends Model
 {
-    use HasFactory;
+    protected $table='facture_profs';
+
+    protected $fillable=[
+        'nom_patient',
+        'hotital_centre',
+        'date_signature',
+        'image',
+    ];
+
 }
