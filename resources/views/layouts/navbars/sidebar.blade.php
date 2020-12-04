@@ -87,7 +87,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('bonenvoiIndex') }}">
-                        <i class="fas fa-file-import"></i></i></i> {{ __('Bon d\'envoi') }}
+                        <i class="fas fa-file-import"></i> {{ __('Bon d\'envoi') }}
                     </a>
                 </li>
                
@@ -98,12 +98,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('bonsortieIndex') }}">
-                        <i class="fas fa-outdent"></i></i></i> {{ __('Bon de Sortie') }}
+                        <i class="fas fa-outdent"></i> {{ __('Bon de Sortie') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('factureproIndex') }}">
-                        <i class="fas fa-file-invoice-dollar"></i></i> {{ __('Facture Proforma') }}
+                        <i class="fas fa-file-invoice-dollar"></i>{{ __('Facture Proforma') }}
                     </a>
                 </li>
                 <li class="nav-item">
