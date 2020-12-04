@@ -2,81 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PriseCharge;
 use Illuminate\Http\Request;
 
 class priseEnchargeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('pages.priseEnCharge.index');
+        $prisecharges=PriseCharge::all();
+        return view('pages.priseEnCharge.index',['prisecharges'=>$prisecharges]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('pages.priseEnCharge.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
-    }
+        
+        $image=$request->file('image');
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        $prisecharges = new PriseCharge();
+        $prisecharges->image='images/'.$imageName;
+        $prisecharges->nom_patient=$request->nom_patient;
+        $prisecharges->nom_medecin=$request->nom_medecin;
+        $prisecharges->date_signature=$request->date_signature;
+        $prisecharges->save();
+        
+        return redirect()->route('prisechargeIndex');
+    } 
+
+    
+   
+
     public function show($id)
     {
-        //
+        $prisecharges=PriseCharge::findOrFail($id);
+        return view('pages.priseEnCharge.show',['prisecharges'=>$prisecharges]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        //
+        $prisecharges=PriseCharge::findOrFail($id);
+        return view('pages.priseEnCharge.edit',['prisecharges'=>$prisecharges]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        $prisecharges=PriseCharge::findOrFail($id);
+
+        $image=$request->file('image');
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+        
+        $prisecharges->update([
+            'nom_patient'=>$request->nom_patient,
+            'nom_medecin'=>$request->nom_medecin,
+            'date_signature'=>$request->date_signature,
+            'image'=>'images/'.$imageName,
+        ]);
+        
+        return redirect()->route('prisechargeIndex');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //

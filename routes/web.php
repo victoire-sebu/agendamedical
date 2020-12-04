@@ -60,8 +60,14 @@ Route::get('/facturepro/edit/{id}]',[factureProformaController::class,'edit'])->
 Route::get('/facturepro/show/{id}',[factureProformaController::class,'show'])->name('factureproShow');
 Route::post('/facturepro/update/{id}',[factureProformaController::class,'update'])->name('factureproUpate');
 
-
+//for prise en charge 
 Route::get('/prisecharge/index',[priseEnchargeController::class,'index'])->name('prisechargeIndex');
+Route::post('/prisecharge/store',[priseEnchargeController::class,'store'])->name('prisechargeStore');
+Route::get('/prisecharge/create',[priseEnchargeController::class,'create'])->name('prisechargeCreate');
+Route::get('/prisecharge/edit/{id}]',[priseEnchargeController::class,'edit'])->name('prisechargeEdit');
+Route::get('/prisecharge/show/{id}',[priseEnchargeController::class,'show'])->name('prisechargeShow');
+Route::post('/prisecharge/update/{id}',[priseEnchargeController::class,'update'])->name('prisechargeUpate');
+
 
 Auth::routes();
 
