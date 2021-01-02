@@ -2,9 +2,10 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
+        // 'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
+        'title' => __('Ordonnance de paiement'),
         'description' => __('Prenez garde de bien renseigner les les champs proposé sur cette page avant tout enregistrement.'),
-        'class' => 'col-lg-7'
+        'class' => 'col-lg-12'
     ])   
 
     <div class="container-fluid mt--7">
@@ -55,7 +56,7 @@
                                   <div class="validate"></div>
                              </div>
                                <div class="col-md-4 form-group">
-                                <label class="control-label" for="date_signature">Hopital/Centre</label>
+                                <label class="control-label" for="date_signature">Numéro ordonnance</label>
                                  <input required type="text" value="{{$ordonnacepaies->num_ordonnance}}" name="num_ordonnance" class="form-control form-control-alternative" id="hotital_centre" placeholder="Hopital/Centre">
                                  <div class="validate"></div>
                                </div>

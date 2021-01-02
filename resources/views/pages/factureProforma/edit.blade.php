@@ -2,9 +2,10 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
+        // 'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
+        'title' => __('Facture proformat'),
         'description' => __('Prenez garde de bien renseigner les les champs proposé sur cette page avant tout enregistrement.'),
-        'class' => 'col-lg-7'
+        'class' => 'col-lg-12'
     ])   
 
     <div class="container-fluid mt--7">

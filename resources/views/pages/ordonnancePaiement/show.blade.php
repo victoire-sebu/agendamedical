@@ -2,9 +2,10 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
-        'description' => __('Prenez garde de bien renseigner les les champs proposé sur cette page avant tout enregistrement.'),
-        'class' => 'col-lg-7'
+        // 'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
+        'title' => __('Ordonnance de paiement'),
+        'description' => __('Information de l\'ordonnace de paiement'),
+        'class' => 'col-lg-12'
     ])   
 
     <div class="container-fluid mt--7">
@@ -34,7 +35,7 @@
                             </p>
                             <hr>
                             <p>
-                                <h3> Hôpital / Centre</h3>
+                                <h3> Numéro ordonnance</h3>
                                 {{$ordonnacepaies->num_ordonnance}}
                             </p>
                             <hr>

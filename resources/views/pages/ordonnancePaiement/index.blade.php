@@ -56,7 +56,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Nom patient</th>
-                                    <th scope="col">Numero ordonnance</th>
+                                    <th scope="col">Numéro ordonnance</th>
                                     <th scope="col">Date signature document</th>
                                     <th scope="col"></th>
                                 </tr>

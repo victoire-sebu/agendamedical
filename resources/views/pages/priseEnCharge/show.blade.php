@@ -2,9 +2,10 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
-        'description' => __('Prenez garde de bien renseigner les les champs proposé sur cette page avant tout enregistrement.'),
-        'class' => 'col-lg-7'
+        // 'title' => __('Mme/Mr ') . ' '. auth()->user()->name,
+        'title' => __('Prise en charge'),
+        'description' => __('Informations de la prise en charge'),
+        'class' => 'col-lg-12'
     ])   
 
     <div class="container-fluid mt--7">
