@@ -1,4 +1,11 @@
 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+      <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="fas fa-home"></i></a></li>
+      <li class="breadcrumb-item"><a href="{{route('bonenvoiIndex')}}">Bon sortie</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Rechercher</li>
+    </ol>
+</nav>
+<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
     <form action="{{route('bonenvoiSearch')}}" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" >
         <div class="form-group mb-0">
             <div class="input-group input-group-alternative">
