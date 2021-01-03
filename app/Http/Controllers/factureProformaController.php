@@ -74,4 +74,17 @@ class factureProformaController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        request()->validate([
+            'chercher'=>"required|min:0"
+        ]);
+
+        $chercher=request()->input('chercher');
+        
+        $factureProformas=FactureProf::where('nom_patient','like',"%$chercher%")
+                ->paginate(6);
+        return view('pages.factureProforma.index')->with('factureProformas',$factureProformas);
+    }
 }

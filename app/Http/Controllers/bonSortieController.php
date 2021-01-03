@@ -11,6 +11,7 @@ class bonSortieController extends Controller
     {
         $bonsorties=BonSortie::all();
         return view('pages.bonSortie.index',['bonsorties'=>$bonsorties]);
+        
     }
 
     public function create()
@@ -76,5 +77,18 @@ class bonSortieController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search()
+    {
+        request()->validate([
+            'chercher'=>"required|min:0"
+        ]);
+
+        $chercher=request()->input('chercher');
+        
+        $bonsorties=BonSortie::where('nom_patient','like',"%$chercher%")
+                ->paginate(6);
+        return view('pages.bonSortie.index')->with('bonsorties',$bonsorties);
     }
 }

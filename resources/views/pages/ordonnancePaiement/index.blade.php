@@ -14,18 +14,8 @@
             <div class="col-lg-6 col-7">
               
               
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <form action="{{route('bonsortieIndex')}}" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" >
-                    <div class="form-group mb-0">
-                        <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" placeholder="Search" type="text">
-                        </div>
-                    </div>
-                </form>
-              </nav>
+                @include('pages.ordonnancePaiement.search')
+
             </div>
                       
 

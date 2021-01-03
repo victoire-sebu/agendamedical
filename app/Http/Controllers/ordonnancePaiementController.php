@@ -77,4 +77,17 @@ class ordonnancePaiementController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        request()->validate([
+            'chercher'=>"required|min:0"
+        ]);
+
+        $chercher=request()->input('chercher');
+        
+        $ordonnacepaies=OrdonnancementPaiement::where('nom_patient','like',"%$chercher%")
+                ->paginate(6);
+        return view('pages.ordonnancePaiement.index')->with('ordonnacepaies',$ordonnacepaies);
+    }
 }

@@ -78,4 +78,17 @@ class bonEnvoiController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        request()->validate([
+            'chercher'=>"required|min:0"
+        ]);
+
+        $chercher=request()->input('chercher');
+        
+        $bonenvois=BonEnvoi::where('nom_patient','like',"%$chercher%")
+                ->paginate(6);
+        return view('pages.bonEnvoi.index')->with('bonenvois',$bonenvois);
+    }
 }
