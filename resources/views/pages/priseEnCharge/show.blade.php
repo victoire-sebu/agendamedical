@@ -35,7 +35,7 @@
                             </p>
                             <hr>
                             <p>
-                                <h3> Hôpital / Centre</h3>
+                                <h3> Nom médecin</h3>
                                 {{$prisecharges->nom_medecin}}
                             </p>
                             <hr>
