@@ -27,7 +27,7 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('Mon profil') }}</span>
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="{{ route('profile.edit') }}" class="dropdown-item">
                         <i class="ni ni-settings-gear-65"></i>
                         <span>{{ __('Paramètres') }}</span>
                     </a>
