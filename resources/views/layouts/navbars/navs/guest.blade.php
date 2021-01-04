@@ -34,10 +34,10 @@
                     </a>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="{{ route('register') }}">
+                    {{-- <a class="nav-link nav-link-icon" href="{{ route('register') }}">
                         <i class="ni ni-circle-08"></i>
                         <span class="nav-link-inner--text">{{ __('Register') }}</span>
-                    </a>
+                    </a> --}}
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('login') }}">
